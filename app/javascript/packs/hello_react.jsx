@@ -7,10 +7,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 const Hello = props => (
-  <div>
-    Hello {props.name}!
-    <button>Wow react running in Rails!</button>
-  </div>
+  <div>Hello {props.name}!</div>
 )
 
 Hello.defaultProps = {

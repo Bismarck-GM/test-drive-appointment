@@ -16,8 +16,7 @@ import ReactDOM from 'react-dom';
 
 // const store = configureStore(INITIAL_STATE);
 
-const App = () => (
-
+const App = () => {
   // <Provider store={store}>
   //   <ConnectedRouter history={history}>
   //     <Header />
@@ -28,20 +27,39 @@ const App = () => (
   //     </Switch>
   //   </ConnectedRouter>
   // </Provider>
+  const data = {
+    user:
+    {
+      username: 'somebody6999',
+      password: 'somepassword',
+    },
+  };
+  const user = fetch('/api/v1/register', {
+    method: 'Post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then(res => res.json())
+    .then(login => console.log(login));
+  console.log(user);
 
-  <div>
-    Hola vite, se limo Rails o webpack
-    <ul>
-      <li>
-        Esto parece que funca
-      </li>
-      <img src="https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XB&client=byoc&paint=P0B39&fabric=FKCSW&sa=S01SQ,S0249,S02TB,S0302,S0313,S0316,S0319,S0322,S0337,S03AG,S03DZ,S03MC,S0402,S0420,S0423,S0430,S0431,S0473,S0481,S0493,S04WF,S0508,S0534,S0544,S0563,S05A1,S05AS,S0676,S06AC,S06AK,S06UN,S0710,S0715,S0760,S0775&resp=webp&quality=50&BKGND=TRANSPARENT&angle=60&width=750" alt="asd" />
-      <li>
-        bien ahora aparentemente...
-      </li>
-    </ul>
-  </div>
-);
+  return (
+    <div>
+      Hola vite, se limo Rails o webpack
+      <ul>
+        <li>
+          Esto parece que funca
+        </li>
+        <img src="https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=21XB&client=byoc&paint=P0B39&fabric=FKCSW&sa=S01SQ,S0249,S02TB,S0302,S0313,S0316,S0319,S0322,S0337,S03AG,S03DZ,S03MC,S0402,S0420,S0423,S0430,S0431,S0473,S0481,S0493,S04WF,S0508,S0534,S0544,S0563,S05A1,S05AS,S0676,S06AC,S06AK,S06UN,S0710,S0715,S0760,S0775&resp=webp&quality=50&BKGND=TRANSPARENT&angle=60&width=750" alt="asd" />
+        <li>
+          bien ahora aparentemente...
+        </li>
+      </ul>
+    </div>
+  );
+};
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <App />,
